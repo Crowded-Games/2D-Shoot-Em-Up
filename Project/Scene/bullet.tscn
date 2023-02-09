@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://c7hm7qkkm1rb0"]
+[gd_scene load_steps=8 format=3 uid="uid://c7hm7qkkm1rb0"]
 
 [ext_resource type="Script" path="res://Code/Bullet.gd" id="1_5vplj"]
 
@@ -15,6 +15,13 @@ colors = PackedColorArray(1, 0.796078, 0, 1, 1, 1, 0.670588, 1)
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_ydfon"]
 gradient = SubResource("Gradient_c4kld")
 
+[sub_resource type="Gradient" id="Gradient_u8k66"]
+colors = PackedColorArray(0.404511, 0.404511, 0.404511, 1, 1, 1, 1, 0)
+
+[sub_resource type="Gradient" id="Gradient_4skfb"]
+offsets = PackedFloat32Array(0, 0.503311, 1)
+colors = PackedColorArray(0.742612, 0, 0.133068, 1, 0.999997, 0.367348, 0.389703, 1, 1, 0.387377, 0.324754, 0)
+
 [node name="Bullet" type="Area2D"]
 script = ExtResource("1_5vplj")
 
@@ -24,5 +31,39 @@ shape = SubResource("CircleShape2D_ff0mn")
 [node name="MeshInstance2D" type="MeshInstance2D" parent="."]
 mesh = SubResource("SphereMesh_1ictf")
 texture = SubResource("GradientTexture2D_ydfon")
+
+[node name="Poof" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 4
+lifetime = 0.25
+one_shot = true
+explosiveness = 1.0
+fract_delta = false
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 30.0
+initial_velocity_max = 30.0
+angular_velocity_max = 360.0
+scale_amount_min = 5.0
+scale_amount_max = 5.0
+color_ramp = SubResource("Gradient_u8k66")
+
+[node name="Kill" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 16
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+fract_delta = false
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 40.0
+initial_velocity_max = 110.0
+angular_velocity_max = 360.0
+linear_accel_min = -200.0
+linear_accel_max = -200.0
+scale_amount_min = 5.0
+scale_amount_max = 8.0
+color_ramp = SubResource("Gradient_4skfb")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

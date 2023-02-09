@@ -18,6 +18,11 @@ func _on_body_entered(body):
 	# make sure walls aren't destroyed!
 	if body.is_in_group("Enemy"):
 		body.queue_free()
+		get_node("Kill").set_emitting(true)
+		get_node("Kill").reparent(get_parent().get_parent())
 		self.queue_free()
 	else:
+		get_node("Poof").set_emitting(true)
+		get_node("Poof").reparent(get_parent().get_parent())
 		self.queue_free()
+		

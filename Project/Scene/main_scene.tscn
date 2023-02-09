@@ -11,10 +11,11 @@ size = Vector3(20, 20, 1)
 [node name="Main Scene" type="Node2D"]
 
 [node name="Character" parent="." instance=ExtResource("1_7r2wr")]
+position = Vector2(383, 397)
 
 [node name="Object" type="StaticBody2D" parent="."]
-position = Vector2(98, 28)
-scale = Vector2(2.44, 7.16)
+position = Vector2(798, 411)
+scale = Vector2(2.44, 42.52)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Object"]
 shape = SubResource("RectangleShape2D_dsddx")
@@ -22,10 +23,40 @@ shape = SubResource("RectangleShape2D_dsddx")
 [node name="MeshInstance2D" type="MeshInstance2D" parent="Object"]
 mesh = SubResource("BoxMesh_eii8h")
 
+[node name="Object2" type="StaticBody2D" parent="."]
+position = Vector2(6.99982, 387)
+scale = Vector2(2.44, 42.52)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Object2"]
+shape = SubResource("RectangleShape2D_dsddx")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Object2"]
+mesh = SubResource("BoxMesh_eii8h")
+
+[node name="Object3" type="StaticBody2D" parent="."]
+position = Vector2(404, -2)
+scale = Vector2(41.4994, 3.08347)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Object3"]
+shape = SubResource("RectangleShape2D_dsddx")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Object3"]
+mesh = SubResource("BoxMesh_eii8h")
+
+[node name="Object4" type="StaticBody2D" parent="."]
+position = Vector2(396, 781)
+scale = Vector2(41.4994, 3.08347)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Object4"]
+shape = SubResource("RectangleShape2D_dsddx")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Object4"]
+mesh = SubResource("BoxMesh_eii8h")
+
 [node name="Spawner" parent="." instance=ExtResource("3_m5r3x")]
-position = Vector2(290, 122)
+position = Vector2(587, 114)
 small_timer_randomization = true
 
 [node name="Spawner2" parent="." instance=ExtResource("3_m5r3x")]
-position = Vector2(-247, 321)
+position = Vector2(142, 646)
 small_timer_randomization = true

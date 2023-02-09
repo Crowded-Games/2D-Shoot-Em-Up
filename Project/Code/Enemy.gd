@@ -16,6 +16,7 @@ func _process(delta):
 	
 	move_and_slide()
 
+# Destroy the player
 func _on_area_detector_body_entered(body):
 	if body.name == player_name:
 		body.queue_free()
