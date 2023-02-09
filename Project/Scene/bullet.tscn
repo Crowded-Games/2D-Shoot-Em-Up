@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://c7hm7qkkm1rb0"]
+
+[ext_resource type="Script" path="res://Code/Bullet.gd" id="1_5vplj"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ff0mn"]
+radius = 3.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_1ictf"]
+radius = 3.0
+height = 6.0
+
+[node name="Bullet" type="Area2D"]
+script = ExtResource("1_5vplj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ff0mn")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+mesh = SubResource("SphereMesh_1ictf")

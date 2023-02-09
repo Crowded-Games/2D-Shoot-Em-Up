@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://dyqku4b80noy4"]
+
+[ext_resource type="PackedScene" uid="uid://bg7rpiubrhh1b" path="res://Scene/character.tscn" id="1_7r2wr"]
+
+[sub_resource type="Gradient" id="Gradient_qvra3"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_x82rh"]
+gradient = SubResource("Gradient_qvra3")
+
+[node name="Main Scene" type="Node2D"]
+
+[node name="Character" parent="." instance=ExtResource("1_7r2wr")]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(97, 82)
+texture = SubResource("GradientTexture2D_x82rh")

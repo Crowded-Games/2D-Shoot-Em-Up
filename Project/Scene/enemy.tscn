@@ -1,0 +1,35 @@
+[gd_scene load_steps=7 format=3 uid="uid://rxrmy77myb60"]
+
+[ext_resource type="Script" path="res://Code/Enemy.gd" id="1_shqbb"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_d4i0x"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_xkpvd"]
+radius = 10.0
+height = 20.0
+
+[sub_resource type="Gradient" id="Gradient_0mm5n"]
+colors = PackedColorArray(1, 0, 0, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_rf4mn"]
+gradient = SubResource("Gradient_0mm5n")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_r4kwt"]
+radius = 12.0
+
+[node name="Enemy" type="CharacterBody2D"]
+script = ExtResource("1_shqbb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_d4i0x")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+mesh = SubResource("SphereMesh_xkpvd")
+texture = SubResource("GradientTexture2D_rf4mn")
+
+[node name="AreaDetector" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaDetector"]
+shape = SubResource("CircleShape2D_r4kwt")
+
+[connection signal="body_entered" from="AreaDetector" to="." method="_on_area_detector_body_entered"]
