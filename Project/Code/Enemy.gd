@@ -3,10 +3,7 @@ extends CharacterBody2D
 const SPEED = 100.0
 @export var player_name = "Character"
 # assigned on ready, this stops a flood of errors.
-var player
-
-func _ready():
-	player = get_parent().get_node(player_name)
+@onready var player = get_parent().get_node(player_name)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

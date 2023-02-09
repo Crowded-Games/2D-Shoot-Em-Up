@@ -25,8 +25,6 @@ shape = SubResource("CircleShape2D_l8pfc")
 [node name="MeshInstance2D" type="MeshInstance2D" parent="."]
 mesh = SubResource("SphereMesh_hgwqg")
 
-[node name="Camera2D" type="Camera2D" parent="."]
-
 [node name="Gun" type="Sprite2D" parent="."]
 position = Vector2(7, 0)
 scale = Vector2(0.234375, 0.0625)
@@ -34,3 +32,6 @@ texture = SubResource("GradientTexture2D_15p81")
 
 [node name="BulletSpawn" type="Marker2D" parent="."]
 position = Vector2(15, 0)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position_smoothing_enabled = true

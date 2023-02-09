@@ -1,20 +1,31 @@
 [gd_scene load_steps=5 format=3 uid="uid://dyqku4b80noy4"]
 
 [ext_resource type="PackedScene" uid="uid://bg7rpiubrhh1b" path="res://Scene/character.tscn" id="1_7r2wr"]
-[ext_resource type="PackedScene" uid="uid://rxrmy77myb60" path="res://Scene/enemy.tscn" id="2_1c1o8"]
+[ext_resource type="PackedScene" uid="uid://chluf4qb455d5" path="res://Scene/spawner.tscn" id="3_m5r3x"]
 
-[sub_resource type="Gradient" id="Gradient_qvra3"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dsddx"]
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_x82rh"]
-gradient = SubResource("Gradient_qvra3")
+[sub_resource type="BoxMesh" id="BoxMesh_eii8h"]
+size = Vector3(20, 20, 1)
 
 [node name="Main Scene" type="Node2D"]
 
 [node name="Character" parent="." instance=ExtResource("1_7r2wr")]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(97, 82)
-texture = SubResource("GradientTexture2D_x82rh")
+[node name="Object" type="StaticBody2D" parent="."]
+position = Vector2(98, 28)
+scale = Vector2(2.44, 7.16)
 
-[node name="Enemy" parent="." instance=ExtResource("2_1c1o8")]
-position = Vector2(221, 228)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Object"]
+shape = SubResource("RectangleShape2D_dsddx")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Object"]
+mesh = SubResource("BoxMesh_eii8h")
+
+[node name="Spawner" parent="." instance=ExtResource("3_m5r3x")]
+position = Vector2(290, 122)
+small_timer_randomization = true
+
+[node name="Spawner2" parent="." instance=ExtResource("3_m5r3x")]
+position = Vector2(-247, 321)
+small_timer_randomization = true
