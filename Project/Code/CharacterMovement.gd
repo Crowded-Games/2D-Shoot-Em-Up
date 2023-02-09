@@ -13,15 +13,17 @@ func _physics_process(_delta):
 	
 	if Input.get_action_raw_strength("Shoot"):
 		var temp = Bullet.instantiate()
-		add_child(temp)
-		temp.global_position = self.global_position
+		add_sibling(temp)
+		temp.global_position = get_node("BulletSpawn").get("global_position")
 		# this sets the rotation as to where it will fire
+		temp.set("area_direction", (get_global_mouse_position() - self.global_position).normalized())
 	
 	if direction_x:
 		velocity.x = direction_x * SPEED
 	if direction_y:
 		velocity.y = direction_y * SPEED
 		
+	
 	self.look_at(get_global_mouse_position())
 	
 	move_and_slide()

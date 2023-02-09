@@ -17,3 +17,5 @@ shape = SubResource("CircleShape2D_ff0mn")
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="."]
 mesh = SubResource("SphereMesh_1ictf")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

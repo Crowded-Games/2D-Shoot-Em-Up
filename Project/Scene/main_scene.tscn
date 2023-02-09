@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://dyqku4b80noy4"]
+[gd_scene load_steps=5 format=3 uid="uid://dyqku4b80noy4"]
 
 [ext_resource type="PackedScene" uid="uid://bg7rpiubrhh1b" path="res://Scene/character.tscn" id="1_7r2wr"]
+[ext_resource type="PackedScene" uid="uid://rxrmy77myb60" path="res://Scene/enemy.tscn" id="2_1c1o8"]
 
 [sub_resource type="Gradient" id="Gradient_qvra3"]
 
@@ -14,3 +15,6 @@ gradient = SubResource("Gradient_qvra3")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(97, 82)
 texture = SubResource("GradientTexture2D_x82rh")
+
+[node name="Enemy" parent="." instance=ExtResource("2_1c1o8")]
+position = Vector2(221, 228)

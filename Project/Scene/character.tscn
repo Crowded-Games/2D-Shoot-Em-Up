@@ -31,3 +31,6 @@ mesh = SubResource("SphereMesh_hgwqg")
 position = Vector2(7, 0)
 scale = Vector2(0.234375, 0.0625)
 texture = SubResource("GradientTexture2D_15p81")
+
+[node name="BulletSpawn" type="Marker2D" parent="."]
+position = Vector2(15, 0)
