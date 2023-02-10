@@ -3,7 +3,11 @@ extends CharacterBody2D
 const SPEED = 100.0
 @export var player_name = "Character"
 # assigned on ready, this stops a flood of errors.
-@onready var player = get_parent().get_node(player_name)
+var player
+
+func _ready():
+	if get_parent().get_node_or_null(player_name) != null:
+		player = get_parent().get_node(player_name)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -18,5 +22,5 @@ func _process(delta):
 
 # Destroy the player
 func _on_area_detector_body_entered(body):
-	if body.name == player_name:
-		body.queue_free()
+	if body.name == player_name && body.get("die") != true:
+		body.Die()

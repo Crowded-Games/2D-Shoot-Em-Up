@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://bg7rpiubrhh1b"]
+[gd_scene load_steps=9 format=3 uid="uid://bg7rpiubrhh1b"]
 
 [ext_resource type="Script" path="res://Code/CharacterMovement.gd" id="1_g1m0b"]
 [ext_resource type="PackedScene" uid="uid://c7hm7qkkm1rb0" path="res://Scene/bullet.tscn" id="2_fsq17"]
+[ext_resource type="AudioStream" uid="uid://bant2odl7yq3y" path="res://Sounds/Player_Kill.wav" id="3_3vefl"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_l8pfc"]
 
@@ -15,6 +16,9 @@ height = 20.0
 gradient = SubResource("Gradient_17gms")
 fill_from = Vector2(1, 0)
 
+[sub_resource type="Gradient" id="Gradient_mtu4j"]
+colors = PackedColorArray(1, 1, 0, 1, 1, 1, 0, 0)
+
 [node name="Character" type="CharacterBody2D"]
 script = ExtResource("1_g1m0b")
 Bullet = ExtResource("2_fsq17")
@@ -25,7 +29,7 @@ shape = SubResource("CircleShape2D_l8pfc")
 [node name="MeshInstance2D" type="MeshInstance2D" parent="."]
 mesh = SubResource("SphereMesh_hgwqg")
 
-[node name="Gun" type="Sprite2D" parent="."]
+[node name="Gun" type="Sprite2D" parent="MeshInstance2D"]
 position = Vector2(7, 0)
 scale = Vector2(0.234375, 0.0625)
 texture = SubResource("GradientTexture2D_15p81")
@@ -35,3 +39,20 @@ position = Vector2(15, 0)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position_smoothing_enabled = true
+
+[node name="Explosive" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 450
+lifetime = 2.0
+one_shot = true
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 70.0
+initial_velocity_max = 210.0
+angular_velocity_max = 360.0
+scale_amount_min = 10.0
+scale_amount_max = 15.0
+color_ramp = SubResource("Gradient_mtu4j")
+
+[node name="Sound" type="AudioStreamPlayer" parent="Explosive"]
+stream = ExtResource("3_3vefl")

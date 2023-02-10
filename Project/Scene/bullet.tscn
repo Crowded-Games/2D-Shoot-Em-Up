@@ -1,6 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://c7hm7qkkm1rb0"]
+[gd_scene load_steps=10 format=3 uid="uid://c7hm7qkkm1rb0"]
 
 [ext_resource type="Script" path="res://Code/Bullet.gd" id="1_5vplj"]
+[ext_resource type="AudioStream" uid="uid://dj06uhupptb62" path="res://Sounds/Poof.wav" id="2_negmh"]
+[ext_resource type="AudioStream" uid="uid://br1gutaatb6bu" path="res://Sounds/Kill.wav" id="3_7t6t3"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ff0mn"]
 radius = 3.0
@@ -48,6 +50,9 @@ scale_amount_min = 5.0
 scale_amount_max = 5.0
 color_ramp = SubResource("Gradient_u8k66")
 
+[node name="Sound" type="AudioStreamPlayer2D" parent="Poof"]
+stream = ExtResource("2_negmh")
+
 [node name="Kill" type="CPUParticles2D" parent="."]
 emitting = false
 amount = 16
@@ -65,5 +70,8 @@ linear_accel_max = -200.0
 scale_amount_min = 5.0
 scale_amount_max = 8.0
 color_ramp = SubResource("Gradient_4skfb")
+
+[node name="Sound" type="AudioStreamPlayer2D" parent="Kill"]
+stream = ExtResource("3_7t6t3")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
