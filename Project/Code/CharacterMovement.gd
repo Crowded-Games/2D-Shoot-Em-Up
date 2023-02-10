@@ -26,24 +26,27 @@ func _physics_process(delta):
 	var direction_y = Input.get_axis("Up", "Down")
 	velocity.x = 0
 	velocity.y = 0
+	
+	if die == true:
+		return
+	
 	# if the player isn't dead...
-	if die != true:
-		if Input.get_action_raw_strength("Shoot") && timer >= fire_rate:
-			var temp = Bullet.instantiate()
-			add_sibling(temp)
-			temp.global_position = get_node("BulletSpawn").get("global_position")
-			# this sets the rotation as to where it will fire
-			temp.set("area_direction", (get_global_mouse_position() - self.global_position).normalized())
-			# These statements below handle camera shake
-			get_node("Camera2D").set("offset", Vector2(randf_range(-4, 4), randf_range(-4, 4)))
-			timer = 0
-		else:
-			get_node("Camera2D").set("offset", Vector2(0, 0))
-		# movement is handled like this
-		if direction_x:
-			velocity.x = direction_x * SPEED
-		if direction_y:
-			velocity.y = direction_y * SPEED
+	if Input.get_action_raw_strength("Shoot") && timer >= fire_rate:
+		var temp = Bullet.instantiate()
+		add_sibling(temp)
+		temp.global_position = get_node("BulletSpawn").get("global_position")
+		# this sets the rotation as to where it will fire
+		temp.set("area_direction", (get_global_mouse_position() - self.global_position).normalized())
+		# These statements below handle camera shake
+		get_node("Camera2D").set("offset", Vector2(randf_range(-4, 4), randf_range(-4, 4)))
+		timer = 0
+	else:
+		get_node("Camera2D").set("offset", Vector2(0, 0))
+	# movement is handled like this
+	if direction_x:
+		velocity.x = direction_x * SPEED
+	if direction_y:
+		velocity.y = direction_y * SPEED
 		
 	# look at mouse
 	self.look_at(get_global_mouse_position())
