@@ -60,3 +60,12 @@ small_timer_randomization = true
 [node name="Spawner2" parent="." instance=ExtResource("3_m5r3x")]
 position = Vector2(142, 646)
 small_timer_randomization = true
+spawn_interval = 4.0
+
+[node name="Spawner3" parent="." instance=ExtResource("3_m5r3x")]
+position = Vector2(129, 80)
+small_timer_randomization = true
+spawn_interval = 2.0
+
+[node name="Spawner4" parent="." instance=ExtResource("3_m5r3x")]
+position = Vector2(732, 729)

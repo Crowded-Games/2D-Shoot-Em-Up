@@ -38,6 +38,7 @@ texture = SubResource("GradientTexture2D_15p81")
 position = Vector2(15, 0)
 
 [node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(1.25, 1.25)
 position_smoothing_enabled = true
 
 [node name="Explosive" type="CPUParticles2D" parent="."]

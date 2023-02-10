@@ -16,6 +16,7 @@ func Die():
 	get_node("Explosive").set_emitting(true)
 	get_node("Explosive/Sound").play()
 	self.get_node("MeshInstance2D").set("visible", false)
+	get_node("Camera2D").set("position", Vector2(0, 0))
 	die = true
 
 func _physics_process(delta):
