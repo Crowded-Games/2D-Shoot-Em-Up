@@ -9,6 +9,7 @@ var player
 func _ready():
 	if get_parent().get_node_or_null(player_name) != null:
 		player = get_parent().get_node(player_name)
+		
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
