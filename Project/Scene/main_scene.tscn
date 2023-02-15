@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://dyqku4b80noy4"]
+[gd_scene load_steps=6 format=3 uid="uid://dyqku4b80noy4"]
 
 [ext_resource type="PackedScene" uid="uid://bg7rpiubrhh1b" path="res://Scene/character.tscn" id="1_7r2wr"]
+[ext_resource type="PackedScene" uid="uid://ct05s8vrgf6io" path="res://Scene/bigger_enemy.tscn" id="3_6oemb"]
 [ext_resource type="PackedScene" uid="uid://chluf4qb455d5" path="res://Scene/spawner.tscn" id="3_m5r3x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dsddx"]
@@ -69,3 +70,4 @@ spawn_interval = 2.0
 
 [node name="Spawner4" parent="." instance=ExtResource("3_m5r3x")]
 position = Vector2(732, 729)
+Enemy = ExtResource("3_6oemb")

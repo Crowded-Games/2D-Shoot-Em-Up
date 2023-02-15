@@ -12,13 +12,6 @@ func _ready():
 	# I have no idea why this makes the camera do that thing, but this is cool!
 	get_node("Camera2D").set("position", Vector2(100, 0))
 
-func Die():
-	get_node("Explosive").set_emitting(true)
-	get_node("Explosive/Sound").play()
-	self.get_node("MeshInstance2D").set("visible", false)
-	get_node("Camera2D").set("position", Vector2(0, 0))
-	die = true
-
 func _physics_process(delta):
 	timer += delta
 	# Get the input direction and handle the movement/deceleration.
@@ -27,6 +20,7 @@ func _physics_process(delta):
 	velocity.x = 0
 	velocity.y = 0
 	
+	# Stop doing things if you dead
 	if die == true:
 		return
 	
@@ -52,3 +46,11 @@ func _physics_process(delta):
 	self.look_at(get_global_mouse_position())
 	
 	move_and_slide()
+
+# all the things that it do when you die.
+func Die():
+	get_node("Explosive").set_emitting(true)
+	get_node("Explosive/Sound").play()
+	self.get_node("MeshInstance2D").set("visible", false)
+	get_node("Camera2D").set("position", Vector2(0, 0))
+	die = true

@@ -1,7 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://rxrmy77myb60"]
+[gd_scene load_steps=9 format=3 uid="uid://ct05s8vrgf6io"]
 
-[ext_resource type="Script" path="res://Code/Enemy.gd" id="1_shqbb"]
-[ext_resource type="AudioStream" uid="uid://br1gutaatb6bu" path="res://Sounds/Kill.wav" id="2_q7vin"]
+[ext_resource type="Script" path="res://Code/Enemy.gd" id="1_yp0fj"]
+[ext_resource type="AudioStream" uid="uid://br1gutaatb6bu" path="res://Sounds/Kill.wav" id="2_yv81f"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_d4i0x"]
 
@@ -23,8 +23,11 @@ offsets = PackedFloat32Array(0, 0.503311, 1)
 colors = PackedColorArray(0.742612, 0, 0.133068, 1, 0.999997, 0.367348, 0.389703, 1, 1, 0.387377, 0.324754, 0)
 
 [node name="Enemy" type="CharacterBody2D" groups=["Enemy"]]
+scale = Vector2(2, 2)
 motion_mode = 1
-script = ExtResource("1_shqbb")
+script = ExtResource("1_yp0fj")
+speed = 45.0
+health = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_d4i0x")
@@ -40,8 +43,8 @@ shape = SubResource("CircleShape2D_r4kwt")
 
 [node name="Kill" type="CPUParticles2D" parent="."]
 emitting = false
-amount = 20
-lifetime = 0.5
+amount = 100
+lifetime = 0.75
 one_shot = true
 explosiveness = 1.0
 fract_delta = false
@@ -57,6 +60,6 @@ scale_amount_max = 8.0
 color_ramp = SubResource("Gradient_j60ij")
 
 [node name="Sound" type="AudioStreamPlayer2D" parent="Kill"]
-stream = ExtResource("2_q7vin")
+stream = ExtResource("2_yv81f")
 
 [connection signal="body_entered" from="AreaDetector" to="." method="_on_area_detector_body_entered"]
