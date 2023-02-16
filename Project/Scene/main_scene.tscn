@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://dyqku4b80noy4"]
+[gd_scene load_steps=8 format=3 uid="uid://dyqku4b80noy4"]
 
 [ext_resource type="Script" path="res://Code/Score Script.gd" id="1_6ltk3"]
 [ext_resource type="PackedScene" uid="uid://bg7rpiubrhh1b" path="res://Scene/character.tscn" id="1_7r2wr"]
 [ext_resource type="PackedScene" uid="uid://ct05s8vrgf6io" path="res://Scene/bigger_enemy.tscn" id="3_6oemb"]
 [ext_resource type="PackedScene" uid="uid://chluf4qb455d5" path="res://Scene/spawner.tscn" id="3_m5r3x"]
+[ext_resource type="PackedScene" uid="uid://dqq6h8h061orv" path="res://Scene/spawn_area.tscn" id="5_2hk0k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dsddx"]
 
@@ -48,6 +49,9 @@ spawn_interval = 2.0
 [node name="Spawner4" parent="." instance=ExtResource("3_m5r3x")]
 position = Vector2(732, 729)
 Enemy = ExtResource("3_6oemb")
+
+[node name="Spawn Area" parent="." instance=ExtResource("5_2hk0k")]
+position = Vector2(396, 391)
 
 [node name="Object" type="StaticBody2D" parent="."]
 position = Vector2(833, 401)

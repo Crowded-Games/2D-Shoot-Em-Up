@@ -16,7 +16,7 @@ func _on_body_entered(body):
 	# make sure walls aren't destroyed!
 	if body.is_in_group("Enemy"):
 		body.hit()
-		self.queue_free()
+		self.hit()
 	else:
 		poof()
 
@@ -25,4 +25,10 @@ func poof():
 	get_node("Poof").set_emitting(true)
 	get_node("Poof/Sound").play()
 	get_node("Poof").reparent(get_parent().get_parent())
+	self.queue_free()
+
+func hit():
+	get_node("Hit").set_emitting(true)
+	get_node("Hit/Sound").play()
+	get_node("Hit").reparent(get_parent().get_parent())
 	self.queue_free()

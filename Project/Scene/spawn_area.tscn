@@ -1,0 +1,15 @@
+[gd_scene load_steps=5 format=3 uid="uid://dqq6h8h061orv"]
+
+[ext_resource type="Script" path="res://Code/Collectable Spawner.gd" id="1_ll6wc"]
+[ext_resource type="PackedScene" uid="uid://c16xjmwoohnsq" path="res://Scene/collectible.tscn" id="2_m7l25"]
+[ext_resource type="PackedScene" uid="uid://bsu8nbvtd4bvq" path="res://Scene/powerable.tscn" id="3_sqet1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f13jn"]
+size = Vector2(800, 800)
+
+[node name="Spawn Area" type="CollisionShape2D"]
+shape = SubResource("RectangleShape2D_f13jn")
+disabled = true
+script = ExtResource("1_ll6wc")
+Coin = ExtResource("2_m7l25")
+PowerUp = ExtResource("3_sqet1")

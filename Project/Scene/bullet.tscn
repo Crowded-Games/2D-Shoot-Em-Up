@@ -17,7 +17,7 @@ colors = PackedColorArray(1, 0.796078, 0, 1, 1, 1, 0.670588, 1)
 gradient = SubResource("Gradient_c4kld")
 
 [sub_resource type="Gradient" id="Gradient_u8k66"]
-colors = PackedColorArray(0.404511, 0.404511, 0.404511, 1, 1, 1, 1, 0)
+colors = PackedColorArray(1, 0.027451, 0.184314, 1, 1, 0.469127, 0.475816, 0)
 
 [node name="Bullet" type="Area2D"]
 script = ExtResource("1_5vplj")
@@ -46,6 +46,25 @@ scale_amount_max = 5.0
 color_ramp = SubResource("Gradient_u8k66")
 
 [node name="Sound" type="AudioStreamPlayer2D" parent="Poof"]
+stream = ExtResource("2_negmh")
+
+[node name="Hit" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 4
+lifetime = 0.25
+one_shot = true
+explosiveness = 1.0
+fract_delta = false
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 60.0
+initial_velocity_max = 120.0
+angular_velocity_max = 360.0
+scale_amount_min = 5.0
+scale_amount_max = 8.0
+color_ramp = SubResource("Gradient_u8k66")
+
+[node name="Sound" type="AudioStreamPlayer2D" parent="Hit"]
 stream = ExtResource("2_negmh")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
