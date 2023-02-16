@@ -23,6 +23,6 @@ func spawn():
 	var temp = Enemy.instantiate()
 	# The randomization at the end is so that way the collisions don't go fucky wucky
 	temp.global_position = self.global_position + Vector2(randf_range(-2, 2), randf_range(-2, 2))
-	add_sibling.call_deferred(temp)
+	add_sibling(temp)
 	if small_timer_randomization == true:
 		actual_spawn_interval = spawn_interval + randf_range(-0.75, 0.75)

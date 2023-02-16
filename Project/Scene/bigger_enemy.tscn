@@ -28,6 +28,7 @@ motion_mode = 1
 script = ExtResource("1_yp0fj")
 speed = 45.0
 health = 5
+score_value = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_d4i0x")
