@@ -14,6 +14,38 @@ size = Vector3(20, 20, 1)
 [node name="Main Scene" type="Node2D"]
 script = ExtResource("1_6ltk3")
 
+[node name="Retry" type="ColorRect" parent="."]
+visible = false
+top_level = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -62.0
+offset_top = -73.0
+offset_right = 64.0
+offset_bottom = 49.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="Retry"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -169.5
+offset_top = -72.5
+offset_right = 155.5
+offset_bottom = -23.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+text = "Press Button to retry"
+
 [node name="Background" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
@@ -21,6 +53,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="Score" type="Label" parent="Background"]
+top_level = true
 layout_mode = 0
 offset_left = 232.0
 offset_top = 361.0

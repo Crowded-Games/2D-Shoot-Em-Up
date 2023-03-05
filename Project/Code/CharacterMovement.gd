@@ -10,6 +10,8 @@ var timer = 0
 var power = false
 var power_timer = 0
 
+@onready var absolute_parent = get_parent()
+
 # controls the player's movement when they die.
 var die: bool = false
 
@@ -35,8 +37,10 @@ func _physics_process(delta):
 	velocity.x = 0
 	velocity.y = 0
 	
-	# Stop doing things if you dead
+	# Stop doing things if you are dead, Respawn on 
 	if die == true:
+		if Input.get_action_raw_strength("Respawn"):
+			Respawn()
 		return
 	
 	# if the player isn't dead...
@@ -67,5 +71,16 @@ func Die():
 	get_node("Explosive").set_emitting(true)
 	get_node("Explosive/Sound").play()
 	self.get_node("MeshInstance2D").set("visible", false)
+	#Stop Camera and set player to death
 	Camera.set("position", Vector2(0, 0))
 	die = true
+	#Wait 1.5 seconds before showing retry screen
+	await get_tree().create_timer(1.5).timeout
+	#Move Camera to center
+	position = Vector2(383,397)
+	#Show Retry Background over whole screen
+	$"../Retry".show()
+	
+# Reload Scene
+func Respawn():
+	get_tree().reload_current_scene()
